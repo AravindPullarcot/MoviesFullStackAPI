@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.DocumentReference;
 import java.util.List;
 
 @Document(collection = "Movies")
-@Data
+@Data//getters setters and all constructors
 @AllArgsConstructor
 @NoArgsConstructor
 public class Movies {
@@ -23,7 +23,6 @@ public class Movies {
     private String releaseDate;
     private String trailerLink;
     private String poster;
-    private String poster1;
     private List<String> genres;
     private List<String> backDrops;
     @DocumentReference

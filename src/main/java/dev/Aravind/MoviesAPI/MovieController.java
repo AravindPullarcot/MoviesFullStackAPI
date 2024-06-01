@@ -1,6 +1,6 @@
 package dev.Aravind.MoviesAPI;
 
-import org.bson.types.ObjectId;
+//import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +19,8 @@ public class MovieController {
     private MovieService movieService;
     @GetMapping
     public ResponseEntity<List> getAllMovies(){
+
+        //return "Poda Myre";
         return new ResponseEntity<List>(movieService.allMovies(), HttpStatus.OK);//ResponseEntity is added to return 200 status
     }
     @GetMapping("/{imdbId}")//We are locating a movie by using imdb value

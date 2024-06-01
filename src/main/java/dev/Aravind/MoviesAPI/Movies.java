@@ -23,7 +23,6 @@ public class Movies {
     private String releaseDate;
     private String trailerLink;
     private String poster;
-    private String poster1;
     private List<String> genres;
     private List<String> backDrops;
     @DocumentReference

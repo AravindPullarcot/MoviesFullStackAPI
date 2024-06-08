@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Movies {
 
-    @org.springframework.data.annotation.Id
+    @Id
     private ObjectId Id;
     private String imdbId;
     private String title;

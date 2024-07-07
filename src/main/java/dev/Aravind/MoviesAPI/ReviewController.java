@@ -13,7 +13,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/reviews")
-public class ReviewController {
+public class ReviewController extends CrossOrginExtender{
     @Autowired
     private ReviewService reviewService;
     @PostMapping

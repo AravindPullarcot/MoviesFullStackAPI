@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/api/v1/movies")//Endpoint when navigating localhost8088//api/v1/movies
-public class MovieController {
+public class MovieController extends CrossOrginExtender {
     @Autowired
     private MovieService movieService;
     private static final Logger LOGGER = Logger.getLogger(MovieController.class.getName());
@@ -26,22 +26,22 @@ public class MovieController {
         LOGGER.info("Response for getAllMovies: " + movies);
         return new ResponseEntity<>(movies, HttpStatus.OK);
     }
-    @GetMapping("/{imdb}")//http://localhost:8081/api/v1/movies/imdb?imdbId=tt3915174
-    public ResponseEntity<Optional<Movies>> getSingleMovieByImdbId(@RequestParam String imdbId) {
-        Optional<Movies> movie = movieService.SingleMovie(imdbId);
-        return new ResponseEntity<>(movie, HttpStatus.OK);
-    }
+//    @GetMapping("/{imdb}")//http://localhost:8081/api/v1/movies/imdb?imdbId=tt3915174
+//    public ResponseEntity<Optional<Movies>> getSingleMovieByImdbId(@RequestParam String imdbId) {
+//        Optional<Movies> movie = movieService.SingleMovie(imdbId);
+//        return new ResponseEntity<>(movie, HttpStatus.OK);
+//    }
 //    @GetMapping("/byId")
 //    public ResponseEntity<Optional<Movies>> getSingleMovieById(@RequestParam String id) {
 //        Optional<Movies> movie = movieService.SingleMovieById(id);
 //        return new ResponseEntity<>(movie, HttpStatus.OK);
 //    }
-//    @GetMapping("/imdb/{imdbId}")//We are locating a movie by using imdb value
-//    public ResponseEntity<Optional<Movies>> getSingleMovie(@PathVariable String imdbId){
-////        Optional<Movies> movie = movieService.SingleMovie(imdbId);
-////        return new ResponseEntity<>(movie, HttpStatus.OK);
-//        return  new ResponseEntity<Optional<Movies>>(movieService.SingleMovie(imdbId), HttpStatus.OK);
-//   }
+    @GetMapping("/imdb/{imdbId}")//We are locating a movie by using imdb value
+    public ResponseEntity<Optional<Movies>> getSingleMovie(@PathVariable String imdbId){
+//        Optional<Movies> movie = movieService.SingleMovie(imdbId);
+//        return new ResponseEntity<>(movie, HttpStatus.OK);
+        return  new ResponseEntity<Optional<Movies>>(movieService.SingleMovie(imdbId), HttpStatus.OK);
+   }
 //    @GetMapping("/{Id}")
 //    public ResponseEntity<Optional<Movies>> getSingleMovieById(@PathVariable String Id){
 //        ObjectId objectId = new ObjectId(Id);
